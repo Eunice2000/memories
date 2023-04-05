@@ -1,0 +1,27 @@
+name: CI
+on:
+  push:
+    branches:
+      - master
+permissions: read-all
+jobs:
+  Deploy-on-ec2-instance:
+    runs-on: ubuntu-latest
+    
+    #steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      #checkout your repository under $github_workspace so your job can acess it
+      - name: checkout code
+        uses: actions/checkout@v3
+        
+      #SSH into our remote server
+      - name: ssh in ec2 remote server
+        env:
+          PRIVATE_KEY: ${{ secrets.AWS_PRIVATE_KEY }}
+          HOSTNAME:  ${{ secrets.HOSTNAME }}
+          USER_NAME:  ${{ secrets.USER_NAME }}
+        run:  |
+          echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
+          ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME}
+          
+          script: echo Hello world!
