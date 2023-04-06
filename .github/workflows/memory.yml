@@ -27,7 +27,7 @@ jobs:
 
       # SSH into our remote server
       - name: SSH in ec2 remote server
-        uses: appleboy/ssh-action@0.1.5
+        uses: appleboy/ssh-action@v0.1.5
         with:
          key: ${{ secrets.AWS_PRIVATE_KEY }}
          host:  ${{ secrets.HOSTNAME }}
