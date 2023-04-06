@@ -42,8 +42,9 @@ jobs:
             npm i && npm run build
             sudo rm -rf /var/www/build
             sudo mv build /var/www/
+            sudo systemctl kill nginx
+            sudo system start nginx
             cd ..
-            sudo systemctl reload nginx
             cd server/
             npm i 
             npm start
