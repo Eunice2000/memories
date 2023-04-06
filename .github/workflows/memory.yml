@@ -40,7 +40,8 @@ jobs:
             git pull origin/main
             cd client/
             npm i && npm run build
-            mv build /var/www/
+            sudo rm -rf /var/www/build
+            sudo mv build /var/www/
             cd ..
             systemctl reload nginx
             cd server/
