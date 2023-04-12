@@ -34,7 +34,7 @@ jobs:
          username:  ${{ secrets.AWS_USERNAME }}
       - name: post mesg
         run: |
-          echo: Login Succeful
+          echo Login Succeful
      
 #          script: |
 #             echo Hello World!
