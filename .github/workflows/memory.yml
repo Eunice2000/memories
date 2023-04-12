@@ -32,6 +32,8 @@ jobs:
          host:  ${{ secrets.HOSTNAME }}
          key: ${{ secrets.AWS_PRIVATE_KEY }}
          username:  ${{ secrets.AWS_USERNAME }}
+         echo: |
+            Succefully SSH
          script: |
             echo Hello World!
             ls
