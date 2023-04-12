@@ -33,7 +33,7 @@ jobs:
          key: ${{ secrets.AWS_PRIVATE_KEY }}
          username:  ${{ secrets.AWS_USERNAME }}
       - name: post mesg
-        with:
+        run: |
           echo: Login Succeful
      
 #          script: |
